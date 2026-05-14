@@ -15,7 +15,7 @@
 ## 常用命令
 
 ```bash
-cd ~/Dev/interactive-color-lab
+cd ~/Dev/labs/interactive-color-lab
 npm run dev      # localhost:3000
 npm run build    # 生产构建
 npm run lint

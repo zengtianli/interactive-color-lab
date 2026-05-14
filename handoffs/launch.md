@@ -55,7 +55,7 @@
 
 ## 待完成
 
-- [ ] [P2] 主站 `tianlizeng.cloud` redeploy 让 navbar 显示 color 卡片
+- [x] [P2] 主站 `tianlizeng.cloud` redeploy 让 navbar 显示 color 卡片 <!-- closed by cc-pulse: f2fb0d78 · 2. oauth-proxy 项目（你自己的 proxy.tianlizeng. -->
   - SSOT 已登记；触发：下次主站任何改动顺带 `/deploy website` 即可
   - 不阻塞 — color.tianlizeng.cloud 直链已可用
 - [ ] [P2] 模块一画廊「点击恢复」交互
@@ -73,11 +73,11 @@
 
 | 文件 | 说明 |
 |---|---|
-| `/Users/tianli/Dev/interactive-color-lab/app/page.tsx` | 首页（两卡片入口） |
-| `/Users/tianli/Dev/interactive-color-lab/app/free/page.tsx` | 模块一 · 自由填色 |
-| `/Users/tianli/Dev/interactive-color-lab/app/pattern/page.tsx` | 模块二 · 纹样拼色 |
-| `/Users/tianli/Dev/interactive-color-lab/next.config.ts` | static export 配置（不要去掉 `output: 'export'` 否则 ship 流程崩） |
-| `/Users/tianli/Dev/interactive-color-lab/CLAUDE.md` | 项目 CLAUDE.md |
+| `/Users/tianli/Dev/labs/interactive-color-lab/app/page.tsx` | 首页（两卡片入口） |
+| `/Users/tianli/Dev/labs/interactive-color-lab/app/free/page.tsx` | 模块一 · 自由填色 |
+| `/Users/tianli/Dev/labs/interactive-color-lab/app/pattern/page.tsx` | 模块二 · 纹样拼色 |
+| `/Users/tianli/Dev/labs/interactive-color-lab/next.config.ts` | static export 配置（不要去掉 `output: 'export'` 否则 ship 流程崩） |
+| `/Users/tianli/Dev/labs/interactive-color-lab/CLAUDE.md` | 项目 CLAUDE.md |
 | `/Users/tianli/Dev/tools/configs/menus/entities/subdomains.yaml` | SSOT — `color` entity 在此（**改这里，不改 services.ts**） |
 | `/Users/tianli/Dev/tools/configs/menus/relations/subdomain-group.yaml` | SSOT — `color: applications` |
 | `/etc/nginx/sites-available/color.tianlizeng.cloud` (VPS) | nginx vhost (port 8443 SSL) |
@@ -93,7 +93,7 @@
 ## 下个会话启动
 
 ```
-cd ~/Dev/interactive-color-lab && /start
+cd ~/Dev/labs/interactive-color-lab && /start
 ```
 
 或如果是来修 bug / 加功能：直接说"加功能 X"或"模块二的平铺有 bug 是 Y"，我从这份 handoff + retro 接上下文。
