@@ -33,7 +33,7 @@
 - `next.config.ts`: `output: 'export'` + `images.unoptimized: true` + `trailingSlash: true`
 - `npm run build` → `out/` 全 prerendered（4 路由 ○ Static）
 - `rsync -avz --delete out/ root@104.218.100.67:/var/www/color/`
-- nginx vhost 渲自 `~/Dev/devtools/lib/templates/nginx-static.conf` → `/etc/nginx/sites-available/color.tianlizeng.cloud`，软链 enable，`nginx -t && reload`
+- nginx vhost 渲自 `~/Dev/tools/dev/lib/templates/nginx-static.conf` → `/etc/nginx/sites-available/color.tianlizeng.cloud`，软链 enable，`nginx -t && reload`
 - `cf_api.py dns add color` → A 记录 proxied
 - `cf_api.py origin-rules add color.tianlizeng.cloud 8443`
 - **无 CF Access**（公开站）
@@ -73,11 +73,11 @@
 
 | 文件 | 说明 |
 |---|---|
-| `/Users/tianli/Dev/labs/interactive-color-lab/app/page.tsx` | 首页（两卡片入口） |
-| `/Users/tianli/Dev/labs/interactive-color-lab/app/free/page.tsx` | 模块一 · 自由填色 |
-| `/Users/tianli/Dev/labs/interactive-color-lab/app/pattern/page.tsx` | 模块二 · 纹样拼色 |
-| `/Users/tianli/Dev/labs/interactive-color-lab/next.config.ts` | static export 配置（不要去掉 `output: 'export'` 否则 ship 流程崩） |
-| `/Users/tianli/Dev/labs/interactive-color-lab/CLAUDE.md` | 项目 CLAUDE.md |
+| `/Users/tianli/Dev/apps/desktop/interactive-color-lab/app/page.tsx` | 首页（两卡片入口） |
+| `/Users/tianli/Dev/apps/desktop/interactive-color-lab/app/free/page.tsx` | 模块一 · 自由填色 |
+| `/Users/tianli/Dev/apps/desktop/interactive-color-lab/app/pattern/page.tsx` | 模块二 · 纹样拼色 |
+| `/Users/tianli/Dev/apps/desktop/interactive-color-lab/next.config.ts` | static export 配置（不要去掉 `output: 'export'` 否则 ship 流程崩） |
+| `/Users/tianli/Dev/apps/desktop/interactive-color-lab/CLAUDE.md` | 项目 CLAUDE.md |
 | `/Users/tianli/Dev/tools/configs/menus/entities/subdomains.yaml` | SSOT — `color` entity 在此（**改这里，不改 services.ts**） |
 | `/Users/tianli/Dev/tools/configs/menus/relations/subdomain-group.yaml` | SSOT — `color: applications` |
 | `/etc/nginx/sites-available/color.tianlizeng.cloud` (VPS) | nginx vhost (port 8443 SSL) |
@@ -88,12 +88,12 @@
 1. **`/site add` 抽象不匹配 Next.js**：`/site add` 是给 yaml→HTML 静态站脚手架（stack/changelog/docs/md-docs 模板），跟现成 Next.js 项目无关。下次新 Next.js 项目直接：`next.config.ts` 加 `output: 'export'` → `npm run build` → 走 `/site ship` 底层动作（rsync + nginx 模板 + cf_api dns + origin-rules），不要 `/site add`
 2. **`cf_api.py` 子命令是 `origin-rules` 不是 `origin`**：`/cf origin add` 是 slash 简写，cf_api.py CLI 用 `origin-rules add <hostname> <port>`
 3. **Bash HEREDOC 在某些 shell 上下文不稳**：commit message 多行用 `git commit -F /tmp/msg.txt` 更稳；`-m "$(cat <<EOF ... EOF)"` 偶发未闭合
-4. **paths audit 状态**：`57 registered / 51 dead / 0 drift` — dead >50 是 Dev meta 级历史遗留（跟本项目无关）。下轮 Dev meta 会话跑 `python3 ~/Dev/devtools/lib/tools/paths.py scan-dead --strict` 处理
+4. **paths audit 状态**：`57 registered / 51 dead / 0 drift` — dead >50 是 Dev meta 级历史遗留（跟本项目无关）。下轮 Dev meta 会话跑 `python3 ~/Dev/tools/dev/lib/tools/paths.py scan-dead --strict` 处理
 
 ## 下个会话启动
 
 ```
-cd ~/Dev/labs/interactive-color-lab && /start
+cd ~/Dev/apps/desktop/interactive-color-lab && /start
 ```
 
 或如果是来修 bug / 加功能：直接说"加功能 X"或"模块二的平铺有 bug 是 Y"，我从这份 handoff + retro 接上下文。
