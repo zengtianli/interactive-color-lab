@@ -88,7 +88,7 @@
 1. **`/site add` 抽象不匹配 Next.js**：`/site add` 是给 yaml→HTML 静态站脚手架（stack/changelog/docs/md-docs 模板），跟现成 Next.js 项目无关。下次新 Next.js 项目直接：`next.config.ts` 加 `output: 'export'` → `npm run build` → 走 `/site ship` 底层动作（rsync + nginx 模板 + cf_api dns + origin-rules），不要 `/site add`
 2. **`cf_api.py` 子命令是 `origin-rules` 不是 `origin`**：`/cf origin add` 是 slash 简写，cf_api.py CLI 用 `origin-rules add <hostname> <port>`
 3. **Bash HEREDOC 在某些 shell 上下文不稳**：commit message 多行用 `git commit -F /tmp/msg.txt` 更稳；`-m "$(cat <<EOF ... EOF)"` 偶发未闭合
-4. **paths audit 状态**：`57 registered / 51 dead / 0 drift` — dead >50 是 Dev meta 级历史遗留（跟本项目无关）。下轮 Dev meta 会话跑 `python3 ~/Dev/tools/dev/lib/tools/paths.py scan-dead --strict` 处理
+4. **paths audit 状态**：`57 registered / 51 dead / 0 drift` — dead >50 是 Dev meta 级历史遗留（跟本项目无关）。下轮 Dev meta 会话跑 `python3 ~/Dev/tools/dev/lib/tools/ssot/paths.py scan-dead --strict` 处理
 
 ## 下个会话启动
 
