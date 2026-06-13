@@ -1,0 +1,13 @@
+name: interactive-color-lab
+domain: apps/desktop
+function: 儿童/成人交互式色彩学习 playground(Next.js 16 web 应用,非 macapp)—— 两模块:曼陀罗自由填色 + 三槽配色驱动传统纹样
+public_api: "localhost:3000(npm run dev)/ 目标子域 color.*(站群管线 /site add → /deploy)"
+key_scripts:
+  - app/            # Next.js App Router(/ 落地、/free 填色、/pattern 配色)
+  - package.json    # npm run dev|build
+depends_on: []
+tier: PACKAGE
+owner: tianli
+docs: ./README.md
+status: active
+kind: web            # 舰队注册:无 .app 形态,fleet_audit 豁免 build.sh/安装检查
